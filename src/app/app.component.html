@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <iframe width="800" height="400" *ngIf="movieSelected" [src]="movie.trailer | safe">
+  </iframe>
+
+  <iframe width="800" height="400" *ngIf="!movieSelected" src="https://www.youtube.com/embed/6ZfuNTqbHE8">
+  </iframe>
+</div>
+<app-video-list (OutputData)="getMovie($event)"></app-video-list>
+
+
