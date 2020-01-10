@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GetMovieListService } from 'src/app/services/get-movie-list.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-video-list',
@@ -26,6 +26,9 @@ export class VideoListComponent implements OnInit {
     this.getMovieListService.getMovieList().subscribe(
       (response: any) => {
         this.movieList = response;
+      },
+      error => {
+        Swal.fire('Oops...', 'Something went wrong!');
       });
   }
 
